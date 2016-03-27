@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Update CentOS
 yum update -y
 
