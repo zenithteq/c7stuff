@@ -31,5 +31,8 @@ yum install iptables-services -y
 systemctl enable iptables.service
 systemctl start iptables.service
 
+#Update CentOS - redo
+yum update -y
+
 #Reboot
 reboot
