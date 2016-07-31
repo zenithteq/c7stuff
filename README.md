@@ -12,5 +12,6 @@ Install Fail2Ban
 The script will reboot your box once complted.
 
 ###Run the script:
-
+```
 curl -o c7prereqs.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/c7prereqs.sh && bash c7prereqs.sh
+```
