@@ -11,7 +11,7 @@ sed -i "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
 yum install epel-release -y
 
 #Install useful tools
-yum install vim nano wget -y
+yum install vim nano wget unzip rsync -y
 
 #Install network monitoring tools
 yum install net-tools iptraf iftop mtr iperf -y
@@ -26,10 +26,22 @@ systemctl disable firewalld
 systemctl mask firewalld.service
 systemctl stop firewalld.service
 
-#Install iptables (optional)
+#Install iptables
 yum install iptables-services -y
 systemctl enable iptables.service
 systemctl start iptables.service
+
+#Install Fail2Ban
+yum install fail2ban -y
+systemctl enable fail2ban
+echo "[DEFAULT]
+# Ban hosts for one hour:
+bantime = 3600
+# Override /etc/fail2ban/jail.d/00-firewalld.conf:
+banaction = iptables-multiport
+[sshd]
+enabled = true" > /etc/fail2ban/jail.local
+systemctl restart fail2ban
 
 #Update CentOS - redo
 yum update -y
