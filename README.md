@@ -1,3 +1,4 @@
+#c7prereqs
 ##Bash script to do the following on CentOS 7 (Minimal Install):
 ```
 Update CentOS
