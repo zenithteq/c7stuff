@@ -9,6 +9,7 @@ Install network monitoring tools
 Disable firewalld
 Install iptables
 Install Fail2Ban
+Install Webmin
 ```
 The script will reboot your box once complted.
 
