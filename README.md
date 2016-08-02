@@ -5,7 +5,7 @@ Update CentOS
 Disable SELinux
 Install EPEL
 Install some useful tools
-Install network monitoring tools
+Install network tools
 Disable firewalld
 Install iptables
 Install Fail2Ban
