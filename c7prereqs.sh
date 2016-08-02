@@ -14,7 +14,7 @@ yum install epel-release -y
 yum install vim nano wget unzip rsync -y
 
 #Install network monitoring tools
-yum install net-tools iptraf iftop mtr iperf -y
+yum install net-tools iptraf iftop mtr iperf bind-utils -y
 
 #Install Vmware Tools (Open VM Tools)
 #yum install open-vm-tools -y
