@@ -1,5 +1,25 @@
 #!/bin/bash
 
+#Change hostname
+HOSTNAME=$(hostname)
+NEW_HOSTNAME="$1"
+IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+echo "Current IP is:" $IP
+echo "Current hostname is:" $HOSTNAME
+echo ""
+if [ -z "$NEW_HOSTNAME" ]; then
+ echo -n "Please enter new hostname: "
+ read NEW_HOSTNAME < /dev/tty
+fi
+echo ""
+if [ -z "$NEW_HOSTNAME" ]; then
+ echo "Error: no hostname entered. Exiting."
+ exit 1
+fi
+echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
+hostnamectl set-hostname $NEW_HOSTNAME
+echo "Done."
+
 #Update CentOS
 yum update -y
 
@@ -52,28 +72,6 @@ service iptables save
 
 #Update CentOS - redo
 yum update -y
-
-#Change hostname
-HOSTNAME=$(hostname)
-NEW_HOSTNAME="$1"
-
-IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
-echo "Current IP is:" $IP
-
-echo "Current hostname is:" $HOSTNAME
-echo ""
-if [ -z "$NEW_HOSTNAME" ]; then
- echo -n "Please enter new hostname: "
- read NEW_HOSTNAME < /dev/tty
-fi
-echo ""
-if [ -z "$NEW_HOSTNAME" ]; then
- echo "Error: no hostname entered. Exiting."
- exit 1
-fi
-echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
-hostnamectl set-hostname $NEW_HOSTNAME
-echo "Done."
 
 #Reboot
 reboot
