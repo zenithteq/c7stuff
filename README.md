@@ -10,6 +10,7 @@ Disable firewalld
 Install iptables
 Install Fail2Ban
 Install Webmin
+Prompt to change hostname
 ```
 The script will reboot your box once complted.
 
