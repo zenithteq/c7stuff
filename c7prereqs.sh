@@ -44,11 +44,15 @@ enabled = true" > /etc/fail2ban/jail.local
 systemctl restart fail2ban
 
 #Install Webmin
-wget http://www.webmin.com/download/rpm/webmin-current.rpm
-yum install perl perl-Net-SSLeay openssl perl-IO-Tty -y
-rpm -U webmin-current.rpm
-iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
-service iptables save
+echo "Do you wish to install Webmin?"
+read -p "Do you really want to install Webmin? [y/n]: " -e -i n INSTALL
+ if [[ "$INSTALL" = 'y' ]]; then
+  wget http://www.webmin.com/download/rpm/webmin-current.rpm
+  yum install perl perl-Net-SSLeay openssl perl-IO-Tty -y
+  rpm -U webmin-current.rpm
+  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
+  service iptables save
+ fi
 
 #Update CentOS - redo
 yum update -y
