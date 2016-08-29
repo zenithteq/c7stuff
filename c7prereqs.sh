@@ -61,6 +61,7 @@ yum update -y
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
 IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+clear
 echo "Current IP is:" $IP
 echo "Current hostname is:" $HOSTNAME
 echo ""
