@@ -44,8 +44,8 @@ enabled = true" > /etc/fail2ban/jail.local
 systemctl restart fail2ban
 
 #Install Webmin
-echo "Do you wish to install Webmin?"
-read -p "Do you really want to install Webmin? [y/n]: " -e -i n INSTALL
+clear
+read -p "Do you want to install Webmin? [y/n]: " -e -i n INSTALL
  if [[ "$INSTALL" = 'y' ]]; then
   wget http://www.webmin.com/download/rpm/webmin-current.rpm
   yum install perl perl-Net-SSLeay openssl perl-IO-Tty -y
