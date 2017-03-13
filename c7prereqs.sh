@@ -17,9 +17,9 @@ yum install vim nano wget unzip rsync -y
 yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
 
 ##Install NTP
-#yum install ntp -y
-#systemctl start ntpd
-#systemctl enable ntpd
+yum install ntp -y
+systemctl start ntpd
+systemctl enable ntpd
 
 #Install Vmware Tools (Open VM Tools)
 #yum install open-vm-tools -y
@@ -77,7 +77,7 @@ fi
 echo ""
 if [ -z "$NEW_HOSTNAME" ]; then
  echo "Error: no hostname entered. Exiting."
- exit 1
+# exit 1
 fi
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
