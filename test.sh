@@ -23,7 +23,7 @@ fi
 echo ""
 if [ -z "$NEW_HOSTNAME" ]; then
  echo "Error: no hostname entered. Exiting."
- exit 1
+# exit 1
 fi
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
