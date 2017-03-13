@@ -1,6 +1,8 @@
 #c7prereqs
 ###Bash script to do the following on CentOS 7 (Minimal Install):
 ```
+Prompt to change hostname
+Prompt to install Webmin
 Update CentOS
 Disable SELinux
 Install EPEL
@@ -10,8 +12,6 @@ Install NTP
 Disable firewalld
 Install iptables
 Install Fail2Ban
-Install Webmin
-Prompt to change hostname
 Install Yubico
 Secure SSH
 ```
