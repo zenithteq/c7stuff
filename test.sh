@@ -16,7 +16,7 @@ echo "Current IP is:" $IP
 echo "Current hostname is:" $HOSTNAME
 echo ""
 read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
-if [ -z "$NEW_HOSTNAME" = 'y' ]; then
+if [ "$NEW_HOSTNAME" = 'y' ]; then
  echo -n "Please enter new hostname: "
  read NEW_HOSTNAME < /dev/tty
 #fi
