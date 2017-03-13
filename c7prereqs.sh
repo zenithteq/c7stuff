@@ -63,6 +63,7 @@ read -p "Do you want to install Webmin? [y/n]: " -e -i n INSTALL
 yum update -y
 
 #Change hostname
+read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
 IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -75,10 +76,10 @@ if [ -z "$NEW_HOSTNAME" ]; then
  read NEW_HOSTNAME < /dev/tty
 fi
 echo ""
-if [ -z "$NEW_HOSTNAME" ]; then
- echo "Error: no hostname entered. Exiting."
+#if [ -z "$NEW_HOSTNAME" ]; then
+# echo "Error: no hostname entered. Exiting."
 # exit 1
-fi
+#fi
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
 echo "Done."
@@ -91,4 +92,4 @@ sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
 #Reboot
-reboot
+#reboot
