@@ -6,11 +6,14 @@ Disable SELinux
 Install EPEL
 Install some useful tools
 Install network tools
+Install NTP
 Disable firewalld
 Install iptables
 Install Fail2Ban
 Install Webmin
 Prompt to change hostname
+Install Yubico
+Secure SSH
 ```
 The script will reboot your box once complted.
 
