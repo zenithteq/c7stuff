@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#curl -o test.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/test.sh && bash test.sh
+
 #Change hostname
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
