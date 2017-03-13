@@ -23,7 +23,7 @@ else
   echo "hostname unchanged"
 fi
 
-#Install Webmin
+#Install Webmin part 1
 clear
 read -p "Do you want to install Webmin? [y/n]: " -e -i n INSTALL
 
@@ -63,7 +63,7 @@ yum install iptables-services -y
 systemctl enable iptables.service
 systemctl start iptables.service
 
-#Install Webmin
+#Install Webmin part 2
 if [[ "$INSTALL" = 'y' ]]; then
   wget http://www.webmin.com/download/rpm/webmin-current.rpm
   yum install perl perl-Net-SSLeay openssl perl-IO-Tty -y
