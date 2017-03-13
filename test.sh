@@ -1,20 +1,11 @@
 #!/bin/bash
 
-#Update CentOS
-#yum update -y
-
 #Disable SELinux
 setenforce 0
 sed -i "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
 
-#Install EPEL
-yum install epel-release -y
-
-#Install useful tools
-yum install vim nano wget unzip rsync -y
-
 #Change hostname
-read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
+#read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
 IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -27,16 +18,13 @@ if [ -z "$NEW_HOSTNAME" ]; then
  read NEW_HOSTNAME < /dev/tty
 fi
 echo ""
-#if [ -z "$NEW_HOSTNAME" ]; then
-# echo "Error: no hostname entered. Exiting."
+if [ -z "$NEW_HOSTNAME" ]; then
+ echo "Error: no hostname entered. Exiting."
 # exit 1
-#fi
+fi
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
 echo "Done."
-
-#Install Yubico
-yum install pam_yubico -y
 
 #Secure SSH
 sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
