@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#curl -o c7prereqs.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/c7prereqs.sh && bash c7prereqs.sh
+
 #Change hostname
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
