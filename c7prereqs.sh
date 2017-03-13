@@ -16,6 +16,11 @@ yum install vim nano wget unzip rsync -y
 #Install monitoring tools
 yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
 
+##Install NTP
+#yum install ntp
+#systemctl start ntpd
+#systemctl enable ntpd
+
 #Install Vmware Tools (Open VM Tools)
 #yum install open-vm-tools -y
 #systemctl start vmtoolsd.service
