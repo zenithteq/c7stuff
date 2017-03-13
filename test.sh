@@ -8,7 +8,10 @@ sed -i "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
 #read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
-IP=$(wget -4qO- "http://whatismyip.akamai.com/")
+IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+if [[ "$IP" = "" ]]; then
+		IP=$(wget -4qO- "http://whatismyip.akamai.com/")
+fi
 clear
 echo "Current IP is:" $IP
 echo "Current hostname is:" $HOSTNAME
