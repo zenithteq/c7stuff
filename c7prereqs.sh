@@ -17,7 +17,7 @@ yum install vim nano wget unzip rsync -y
 yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
 
 ##Install NTP
-#yum install ntp
+#yum install ntp -y
 #systemctl start ntpd
 #systemctl enable ntpd
 
