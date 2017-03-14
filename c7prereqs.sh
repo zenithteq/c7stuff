@@ -93,7 +93,7 @@ yum update -y
 yum install pam_yubico -y
 
 #Secure SSH
-sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+#sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
 #Reboot
