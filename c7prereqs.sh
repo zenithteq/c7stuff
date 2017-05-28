@@ -68,7 +68,7 @@ systemctl start iptables.service
 #Install Webmin part 2
 if [[ "$INSTALL" = 'y' ]]; then
   wget http://www.webmin.com/download/rpm/webmin-current.rpm
-  yum install perl perl-Net-SSLeay openssl perl-IO-Tty -y
+  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
   rpm -U webmin-current.rpm
   iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
   service iptables save
