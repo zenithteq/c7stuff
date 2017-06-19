@@ -22,7 +22,8 @@ echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
 echo "Done."
 else
-  echo "hostname unchanged"
+  echo ""
+  echo "hostname is unchanged."
 fi
 
 #Install Webmin part 1
