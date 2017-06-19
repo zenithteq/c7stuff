@@ -26,7 +26,7 @@ else
 fi
 
 #Install Webmin part 1
-#clear
+echo ""
 read -p "Do you want to install Webmin? [y/n]: " -e -i n INSTALL
 
 #Update CentOS
