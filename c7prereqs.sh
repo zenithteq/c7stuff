@@ -28,13 +28,13 @@ fi
 
 #Install Webmin part 1
 echo ""
-read -p "$green[EFA]$Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
+read -p "Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
 if [ "$WEBMININSTALL" = 'y' ]; then
   echo ""
-  echo -n "$green[EFA]$Webmin will be installed."
+  echo -n "Webmin will be installed."
 else
   echo ""
-  echo "$green[EFA]$Webmin will not be installed."
+  echo "Webmin will not be installed."
 fi
 
 sleep 5
