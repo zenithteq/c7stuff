@@ -47,15 +47,13 @@ setenforce 0
 sed -i "s|SELINUX=enforcing|SELINUX=disabled|" /etc/selinux/config
 
 #Install EPEL
-yum install epel-release -y
+if rpm -q epel-release > /dev/null; then
+  echo "Package epel-release is already installed.";
+else 
+  yum install epel-release -y
+fi
 
-#Install useful tools
-yum install vim nano wget unzip rsync -y
-
-#Install monitoring tools
-yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
-
-##Install NTP
+#Install NTP
 if rpm -q ntp > /dev/null; then
   echo "Package ntp is already installed."; 
 else
@@ -121,6 +119,12 @@ fi
 #Secure SSH
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
+
+#Install useful tools
+yum install vim nano wget unzip rsync -y
+
+#Install monitoring tools
+yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
 
 #Update CentOS - redo
 yum update -y
