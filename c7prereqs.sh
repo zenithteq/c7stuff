@@ -15,7 +15,7 @@ echo "Current hostname is:" $HOSTNAME
 echo ""
 read -p "Do you want to change the hostname? [y/n]: " -e -i n NEW_HOSTNAME
 if [ "$NEW_HOSTNAME" = 'y' ]; then
- echo -n "Please enter new hostname: "
+ echo -n "Please enter the new hostname: "
  read NEW_HOSTNAME < /dev/tty
 echo ""
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
@@ -123,4 +123,6 @@ fi
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
 #Reboot
-#reboot
+echo "This host will now reboot."
+sleep 5
+reboot
