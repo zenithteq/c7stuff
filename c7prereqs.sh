@@ -56,9 +56,13 @@ yum install vim nano wget unzip rsync -y
 yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
 
 ##Install NTP
-yum install ntp -y
-systemctl start ntpd
-systemctl enable ntpd
+if rpm -q ntp > /dev/null; then
+  echo "Package ntp is already installed."; 
+else
+  yum install ntp -y
+  systemctl start ntpd
+  systemctl enable ntpd
+fi
 
 #Install Vmware Tools (Open VM Tools)
 #yum install open-vm-tools -y
@@ -108,7 +112,11 @@ fi
 yum update -y
 
 #Install Yubico
-yum install pam_yubico -y
+if rpm -q pam_yubico > /dev/null; then
+  echo "Package pam_yubico is already installed."; 
+else
+  yum install pam_yubico -y
+fi
 
 #Secure SSH
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
