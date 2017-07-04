@@ -20,7 +20,7 @@ if [ "$NEW_HOSTNAME" = 'y' ]; then
 echo ""
 echo "Changing hostname from $HOSTNAME to $NEW_HOSTNAME..."
 hostnamectl set-hostname $NEW_HOSTNAME
-echo "Done."
+echo "hostname has been changed."
 else
   echo ""
   echo "hostname is unchanged."
@@ -29,6 +29,15 @@ fi
 #Install Webmin part 1
 echo ""
 read -p "Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
+if [ "$WEBMININSTALL" = 'y' ]; then
+  echo ""
+  echo -n "Webmin will be installed."
+else
+  echo ""
+  echo "Webmin will not be installed."
+fi
+
+sleep 5
 
 #Update CentOS
 yum update -y
