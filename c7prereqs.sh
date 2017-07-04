@@ -28,7 +28,7 @@ fi
 
 #Install Webmin part 1
 echo ""
-read -p "Do you want to install Webmin? [y/n]: " -e -i n INSTALL
+read -p "Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
 
 #Update CentOS
 yum update -y
@@ -67,7 +67,7 @@ systemctl enable iptables.service
 systemctl start iptables.service
 
 #Install Webmin part 2
-if [[ "$INSTALL" = 'y' ]]; then
+if [[ "$WEBMININSTALL" = 'y' ]]; then
   wget http://www.webmin.com/download/rpm/webmin-current.rpm
   yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
   rpm -U webmin-current.rpm
@@ -76,16 +76,20 @@ if [[ "$INSTALL" = 'y' ]]; then
 fi
 
 #Install Fail2Ban
-yum install fail2ban -y
-systemctl enable fail2ban
-echo "[DEFAULT]
-# Ban hosts for one hour:
-bantime = 3600
-# Override /etc/fail2ban/jail.d/00-firewalld.conf:
-banaction = iptables-multiport
-[sshd]
-enabled = true" > /etc/fail2ban/jail.local
-systemctl restart fail2ban
+if rpm -q fail2ban > /dev/null; then
+  echo "Package fail2ban is already installed."; 
+else
+  yum install fail2ban -y
+  systemctl enable fail2ban
+  echo "[DEFAULT]
+  # Ban hosts for one hour:
+  bantime = 3600
+  # Override /etc/fail2ban/jail.d/00-firewalld.conf:
+  banaction = iptables-multiport
+  [sshd]
+  enabled = true" > /etc/fail2ban/jail.local
+  systemctl restart fail2ban
+fi
 
 #Update CentOS - redo
 yum update -y
