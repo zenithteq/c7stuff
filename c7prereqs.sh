@@ -65,7 +65,7 @@ else
 fi
 
 #Install Vmware Tools (Open VM Tools)
-if dmidecode -s system-product-name > /dev/null; then
+if dmidecode -s system-product-name | grep VMware > /dev/null; then
   echo "You are running on VMware. Open VM Tools will now be installed.";
   yum install open-vm-tools -y
   systemctl start vmtoolsd.service
