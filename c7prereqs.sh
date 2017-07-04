@@ -62,9 +62,13 @@ systemctl mask firewalld.service
 systemctl stop firewalld.service
 
 #Install iptables
-yum install iptables-services -y
-systemctl enable iptables.service
-systemctl start iptables.service
+if rpm -q iptables-services > /dev/null; then
+  echo "Package iptables-services is already installed."; 
+else
+  yum install iptables-services -y
+  systemctl enable iptables.service
+  systemctl start iptables.service
+fi
 
 #Install Webmin part 2
 if [[ "$WEBMININSTALL" = 'y' ]]; then
@@ -102,4 +106,4 @@ yum install pam_yubico -y
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
 #Reboot
-reboot
+#reboot
