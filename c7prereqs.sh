@@ -83,15 +83,6 @@ else
   systemctl start iptables.service
 fi
 
-#Install Webmin part 2
-if [[ "$WEBMININSTALL" = 'y' ]]; then
-  wget http://www.webmin.com/download/rpm/webmin-current.rpm
-  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
-  rpm -U webmin-current.rpm
-  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
-  service iptables save
-fi
-
 #Install Fail2Ban
 if rpm -q fail2ban > /dev/null; then
   echo "Package fail2ban is already installed."; 
@@ -108,9 +99,6 @@ else
   systemctl restart fail2ban
 fi
 
-#Update CentOS - redo
-yum update -y
-
 #Install Yubico
 if rpm -q pam_yubico > /dev/null; then
   echo "Package pam_yubico is already installed."; 
@@ -118,9 +106,21 @@ else
   yum install pam_yubico -y
 fi
 
+#Install Webmin part 2
+if [[ "$WEBMININSTALL" = 'y' ]]; then
+  wget http://www.webmin.com/download/rpm/webmin-current.rpm
+  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
+  rpm -U webmin-current.rpm
+  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
+  service iptables save
+fi
+
 #Secure SSH
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
+
+#Update CentOS - redo
+yum update -y
 
 #Reboot
 echo "This host will now reboot."
