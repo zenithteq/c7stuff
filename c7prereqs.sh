@@ -1,13 +1,5 @@
 #!/bin/bash
 
-red='\E[00;31m'
-green='\E[00;32m'
-yellow='\E[00;33m'
-blue='\E[00;34m'
-magenta='\E[00;35'
-cyan='\E[00;36m'
-clean='\e[00m'
-
 #curl -o c7prereqs.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/c7prereqs.sh && bash c7prereqs.sh
 
 #Change hostname
@@ -42,7 +34,7 @@ if [ "$WEBMININSTALL" = 'y' ]; then
   echo -n "Webmin will be installed."
 else
   echo ""
-  echo "$green[EFA]$clean Webmin will not be installed."
+  echo "Webmin will not be installed."
 fi
 
 sleep 5
