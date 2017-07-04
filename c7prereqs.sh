@@ -125,4 +125,4 @@ sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 #Reboot
 echo "This host will now reboot."
 sleep 5
-reboot
+#reboot
