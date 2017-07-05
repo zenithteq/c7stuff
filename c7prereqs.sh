@@ -154,7 +154,7 @@ else
 fi
 
 #Install iptraf
-if rpm -q iptraf > /dev/null; then
+if rpm -q iptraf-ng > /dev/null; then
   echo "Package iptraf is already installed."; 
 else
   yum install iptraf -y
