@@ -201,10 +201,6 @@ fi
 
 #Install Webmin part 2
 if [[ "$WEBMININSTALL" = 'y' ]]; then
-  if rpm -q webmin > /dev/null; then
-  echo "Package webmin is already installed.";
-  fi
-else
   wget http://www.webmin.com/download/rpm/webmin-current.rpm
   yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
   rpm -U webmin-current.rpm
