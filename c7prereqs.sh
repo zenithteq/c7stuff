@@ -120,11 +120,89 @@ fi
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
-#Install useful tools
-yum install vim nano wget unzip rsync -y
+#Install vim
+if rpm -q vim > /dev/null; then
+  echo "Package vim is already installed."; 
+else
+  yum install vim -y
+fi
 
-#Install monitoring tools
-yum install net-tools iptraf iftop mtr iperf bind-utils dstat -y
+#Install nano
+if rpm -q nano > /dev/null; then
+  echo "Package nano is already installed."; 
+else
+  yum install nano -y
+fi
+
+#Install wget
+if rpm -q wget > /dev/null; then
+  echo "Package wget is already installed."; 
+else
+  yum install wget -y
+fi
+
+#Install unzip
+if rpm -q unzip > /dev/null; then
+  echo "Package unzip is already installed."; 
+else
+  yum install unzip -y
+fi
+
+#Install rsync
+if rpm -q rsync > /dev/null; then
+  echo "Package rsync is already installed."; 
+else
+  yum install rsync -y
+fi
+
+#Install net-tools
+if rpm -q net-tools > /dev/null; then
+  echo "Package net-tools is already installed."; 
+else
+  yum install net-tools -y
+fi
+
+#Install iptraf
+if rpm -q iptraf > /dev/null; then
+  echo "Package iptraf is already installed."; 
+else
+  yum install iptraf -y
+fi
+
+#Install iftop
+if rpm -q iftop > /dev/null; then
+  echo "Package iftop is already installed."; 
+else
+  yum install iftop -y
+fi
+
+#Install mtr
+if rpm -q mtr > /dev/null; then
+  echo "Package mtr is already installed."; 
+else
+  yum install mtr -y
+fi
+
+#Install iperf
+if rpm -q iperf > /dev/null; then
+  echo "Package iperf is already installed."; 
+else
+  yum install iperf -y
+fi
+
+#Install bind-utils
+if rpm -q bind-utils > /dev/null; then
+  echo "Package bind-utils is already installed."; 
+else
+  yum install bind-utils -y
+fi
+
+#Install dstat
+if rpm -q dstat > /dev/null; then
+  echo "Package dstat is already installed."; 
+else
+  yum install dstat -y
+fi
 
 #Update CentOS - redo
 yum update -y
