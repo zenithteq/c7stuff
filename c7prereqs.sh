@@ -107,15 +107,6 @@ else
   yum install pam_yubico -y
 fi
 
-#Install Webmin part 2
-if [[ "$WEBMININSTALL" = 'y' ]]; then
-  wget http://www.webmin.com/download/rpm/webmin-current.rpm
-  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
-  rpm -U webmin-current.rpm
-  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
-  service iptables save
-fi
-
 #Secure SSH
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
@@ -202,6 +193,15 @@ if rpm -q dstat > /dev/null; then
   echo "Package dstat is already installed."; 
 else
   yum install dstat -y
+fi
+
+#Install Webmin part 2
+if [[ "$WEBMININSTALL" = 'y' ]]; then
+  wget http://www.webmin.com/download/rpm/webmin-current.rpm
+  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
+  rpm -U webmin-current.rpm
+  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
+  service iptables save
 fi
 
 #Update CentOS - redo
