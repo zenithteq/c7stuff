@@ -112,7 +112,7 @@ fi
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
 
 #Install vim
-if rpm -q vim > /dev/null; then
+if rpm -q vim-enhanced > /dev/null; then
   echo "Package vim is already installed."; 
 else
   yum install vim -y
