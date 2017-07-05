@@ -31,7 +31,7 @@ echo ""
 read -p "Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
 if [ "$WEBMININSTALL" = 'y' ]; then
   echo ""
-  echo -n "Webmin will be installed."
+  echo "Webmin will be installed."
 else
   echo ""
   echo "Webmin will not be installed."
