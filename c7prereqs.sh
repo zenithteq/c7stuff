@@ -212,6 +212,8 @@ then
 else
   if rpm -q webmin > /dev/null; 
   then
+  	echo -e "\e[1;31mPackage webmin is already installed.\e[0m"
+	printf "\033[1;31mTPackage webmin is already installed.\033[0m\n"
 	echo "Package webmin is already installed."
   else
         echo "Webmin will not be installed."
