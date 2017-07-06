@@ -199,7 +199,6 @@ then
   then
 	echo "Package webmin is already installed."
   else
-	echo ""
 	echo "Webmin will be installed."
 	wget http://www.webmin.com/download/rpm/webmin-current.rpm
     yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
