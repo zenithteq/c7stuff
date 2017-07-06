@@ -2,9 +2,6 @@
 
 #curl -o c7prereqs.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/c7prereqs.sh && bash c7prereqs.sh
 
-echo -e "\e[1;31mThis is red text\e[0m"
-printf "\033[1;31mThis is red text\033[0m\n"
-
 #Change hostname
 HOSTNAME=$(hostname)
 NEW_HOSTNAME="$1"
@@ -213,7 +210,6 @@ else
   if rpm -q webmin > /dev/null; 
   then
   	echo -e "\e[1;31mPackage webmin is already installed.\e[0m"
-	printf "\033[1;31mTPackage webmin is already installed.\033[0m\n"
 	echo "Package webmin is already installed."
   else
         echo "Webmin will not be installed."
@@ -224,6 +220,7 @@ fi
 yum update -y
 
 #Reboot
-echo "This host will now reboot."
+#echo "This host will now reboot."
+printf "\033[1;31mThis host will now reboot.\033[0m\n"
 sleep 5
 #reboot
