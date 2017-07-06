@@ -29,13 +29,6 @@ fi
 #Install Webmin part 1
 echo ""
 read -p "Do you want to install Webmin? [y/n]: " -e -i n WEBMININSTALL
-if [ "$WEBMININSTALL" = 'y' ]; then
-  echo ""
-  echo "Webmin will be installed."
-else
-  echo ""
-  echo "Webmin will not be installed."
-fi
 
 sleep 5
 
@@ -200,12 +193,23 @@ else
 fi
 
 #Install Webmin part 2
-if [[ "$WEBMININSTALL" = 'y' ]]; then
-  wget http://www.webmin.com/download/rpm/webmin-current.rpm
-  yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
-  rpm -U webmin-current.rpm
-  iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
-  service iptables save
+if [ "$WEBMININSTALL" = 'y' ];
+then
+  if rpm -q webmin > /dev/null; 
+  then
+	echo "Package webmin is already installed."
+  else
+	echo ""
+	echo "Webmin will be installed."
+	wget http://www.webmin.com/download/rpm/webmin-current.rpm
+    yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
+    rpm -U webmin-current.rpm
+    iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
+    service iptables save
+  fi
+else
+  echo ""
+  echo "Webmin will not be installed."
 fi
 
 #Update CentOS - redo
