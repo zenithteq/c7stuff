@@ -208,7 +208,6 @@ then
     service iptables save
   fi
 else
-  echo ""
   echo "Webmin will not be installed."
 fi
 
