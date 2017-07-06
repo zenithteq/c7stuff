@@ -198,19 +198,19 @@ then
   if rpm -q webmin > /dev/null; 
   then
 	echo "Package webmin is already installed."
-  else
+  else	
+  	echo -e "\e[1;31mWebmin will be installed.\e[0m"
 	echo "Webmin will be installed."
 	wget http://www.webmin.com/download/rpm/webmin-current.rpm
-    yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
-    rpm -U webmin-current.rpm
-    iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
-    service iptables save
+    	yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
+    	rpm -U webmin-current.rpm
+    	iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
+    	service iptables save
   fi
 else
   if rpm -q webmin > /dev/null; 
   then
   	echo -e "\e[1;31mPackage webmin is already installed.\e[0m"
-	echo "\e[1;31mPackage webmin is already installed.\e[0m"
 else
         echo "Webmin will not be installed."
   fi
