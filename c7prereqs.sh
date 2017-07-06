@@ -207,7 +207,12 @@ then
     service iptables save
   fi
 else
-  echo "Webmin will not be installed."
+  if rpm -q webmin > /dev/null; 
+  then
+	echo "Package webmin is already installed."
+  else
+        echo "Webmin will not be installed."
+  fi
 fi
 
 #Update CentOS - redo
