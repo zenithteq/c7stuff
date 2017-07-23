@@ -210,7 +210,7 @@ then
   then
 	echo -e "\e[1;31mPackage webmin is already installed.\e[0m"
   else	
-  	echo -e "\e[1;31mWebmin will now be installed.\e[0m"
+  	echo -e "\e[1;31mLAMP will now be installed.\e[0m"
 	wget http://www.webmin.com/download/rpm/webmin-current.rpm
     	yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
     	rpm -U webmin-current.rpm
