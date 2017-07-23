@@ -136,6 +136,13 @@ else
   yum install unzip -y
 fi
 
+#Install screen
+if rpm -q screen > /dev/null; then
+  echo "Package screen is already installed."; 
+else
+  yum install screen -y
+fi
+
 #Install rsync
 if rpm -q rsync > /dev/null; then
   echo "Package rsync is already installed."; 
