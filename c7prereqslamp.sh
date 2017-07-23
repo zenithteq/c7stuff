@@ -237,7 +237,9 @@ then
 		yum install httpd -y
 		iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 		iptables -I INPUT -p tcp --dport 443 -j ACCEPT
-    	service iptables save
+    		service iptables save
+		yum install openssl mod_ssl -y
+		systemctl restart httpd.service
 		yum install mariadb-server mariadb -y
 		systemctl enable mariadb.service
 		systemctl start mariadb.service
