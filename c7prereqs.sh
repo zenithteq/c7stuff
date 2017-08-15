@@ -90,8 +90,9 @@ else
 echo "[DEFAULT]
 # Ban hosts for one hour:
 bantime = 3600
-# Override /etc/fail2ban/jail.d/00-firewalld.conf:
+#
 banaction = iptables-multiport
+#
 [sshd]
 enabled = true" > /etc/fail2ban/jail.local
   systemctl restart fail2ban
