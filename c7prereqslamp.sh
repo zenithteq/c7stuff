@@ -91,13 +91,14 @@ if rpm -q fail2ban > /dev/null; then
 else
   yum install fail2ban -y
   systemctl enable fail2ban
-  echo "[DEFAULT]
-  # Ban hosts for one hour:
-  bantime = 3600
-  # Override /etc/fail2ban/jail.d/00-firewalld.conf:
-  banaction = iptables-multiport
-  [sshd]
-  enabled = true" > /etc/fail2ban/jail.local
+echo "[DEFAULT]
+# Ban hosts for one hour:
+bantime = 3600
+#
+banaction = iptables-multiport
+#
+[sshd]
+enabled = true" > /etc/fail2ban/jail.local
   systemctl restart fail2ban
 fi
 
