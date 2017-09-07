@@ -56,15 +56,16 @@ else
 fi
 
 #Install open-vm-tools
+if dmidecode -s system-product-name | grep VMware > /dev/null; then
 if rpm -q open-vm-tools > /dev/null; then
-  echo "Package open-vm-tools is already installed."; 
-elif dmidecode -s system-product-name | grep VMware > /dev/null; then
-  echo "You are running on VMware. Open VM Tools will now be installed.";
+  echo "You are running on VMware. Package open-vm-tools is already installed.";
+else echo "You are running on VMware. Package open-vpm-tools will now be installed.";
   yum install open-vm-tools -y
   systemctl start vmtoolsd.service
   systemctl enable vmtoolsd.service
+fi
 else
-  yum install open-vm-tools -y
+ echo "You are not running on VMware. Package open-vm-tools has not been or will not be installed.";
 fi
 
 #Disable firewalld
