@@ -265,7 +265,7 @@ else
 fi
 
 #Update CentOS - redo
-yum update -y -q
+yum update -y -q -e 0
 
 #Reboot
 #echo "This host will now reboot."
