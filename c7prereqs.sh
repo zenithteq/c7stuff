@@ -35,7 +35,7 @@ sleep 5
 #Update CentOS
 echo ""
 echo "Now updating CentOS"
-yum update -y -q -e 0
+yum update -y -q > /dev/null
 
 #Disable SELinux
 echo ""
