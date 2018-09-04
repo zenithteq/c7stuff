@@ -36,7 +36,8 @@ sleep 5
 echo ""
 echo -n "Now updating CentOS"
 yum update -y -q &> /dev/null
-echo "done."
+echo ""
+echo "CentOS update done."
 
 #Disable SELinux
 echo ""
