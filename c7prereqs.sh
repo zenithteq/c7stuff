@@ -281,4 +281,4 @@ yum update -y -q -e 0
 #echo "This host will now reboot."
 printf "\033[1;31mThis host will now reboot.\033[0m\n"
 sleep 5
-#reboot
+reboot
