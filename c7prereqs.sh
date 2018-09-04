@@ -242,6 +242,15 @@ else
   yum install dstat -y -q
 fi
 
+#Install lsof
+if rpm -q lsof > /dev/null; then
+  echo "Package lsof is already installed."; 
+else
+  echo ""
+  echo "Now installing lsof"
+  yum install lsof -y -q
+fi
+
 #Install Webmin part 2
 if [ "$WEBMININSTALL" = 'y' ];
 then
