@@ -68,7 +68,6 @@ fi
 #Install open-vm-tools
 if dmidecode -s system-product-name | grep VMware > /dev/null; then
 if rpm -q open-vm-tools > /dev/null; then
-  echo ""
   echo "You are running on VMware. Package open-vm-tools is already installed.";
 else echo "You are running on VMware. Package open-vm-tools will now be installed.";
   yum install open-vm-tools -y -q
@@ -83,7 +82,6 @@ fi
 #Install qemu-guest-agent
 if systemd-detect-virt | grep kvm > /dev/null; then
 if rpm -q qemu-guest-agent > /dev/null; then
-  echo ""
   echo "You are running on KVM. Package qemu-guest-agent is already installed.";
 else echo "You are running on KVM. Package qemu-guest-agent will now be installed.";
   yum install qemu-guest-agent -y -q
@@ -95,7 +93,7 @@ fi
 
 #Disable firewalld
 echo ""
-echo "Now disabling firewalld.";
+echo "Now disabling firewalld."
 systemctl disable firewalld
 systemctl mask firewalld.service
 systemctl stop firewalld.service
