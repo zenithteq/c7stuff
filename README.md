@@ -6,8 +6,9 @@ Prompt to install Webmin
 Update CentOS
 Disable SELinux
 Install EPEL
-Install some useful tools
-Install network tools
+Install open-vm-tools or qemu-guest-agent (will query vm type)
+Install some useful tools (vim, nano, wget, unzip, screen, rsync)
+Install network tools (net-tools, iptraf, iftop, mtr, iperf, bind-utils, dstat, lsof)
 Install NTP
 Disable firewalld
 Install iptables
