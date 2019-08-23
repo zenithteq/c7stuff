@@ -54,6 +54,17 @@ else
   yum install epel-release -y -q
 fi
 
+#Install yum-cron
+if rpm -q yum-cron > /dev/null; then
+  echo "Package yum-cron is already installed."; 
+else
+  echo ""
+  echo "Now installing yum-cron"
+  yum install yum-cron -y -q
+  systemctl start yum-cron
+  systemctl enable yum-cron
+fi
+
 #Install ntp
 if rpm -q ntp > /dev/null; then
   echo "Package ntp is already installed."; 
