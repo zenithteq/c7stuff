@@ -63,6 +63,7 @@ else
   yum install yum-cron -y -q
   systemctl start yum-cron
   systemctl enable yum-cron
+  sed -i 's/^update_cmd = default/update_cmd = security-severity:Critical/' /etc/yum/yum-cron.conf
 fi
 
 #Install ntp
