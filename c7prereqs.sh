@@ -235,6 +235,15 @@ else
   yum install iftop -y -q
 fi
 
+#Install iotop
+if rpm -q iotop > /dev/null; then
+  echo "Package iotop is already installed."; 
+else
+  echo ""
+  echo "Now installing iotop"
+  yum install iotop -y -q
+fi
+
 #Install mtr
 if rpm -q mtr > /dev/null; then
   echo "Package mtr is already installed."; 
