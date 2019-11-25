@@ -8,7 +8,8 @@ Disable SELinux
 Install EPEL
 Install open-vm-tools or qemu-guest-agent (will query vm type)
 Install some useful tools (vim, nano, wget, unzip, screen, rsync)
-Install network tools (net-tools, iptraf, iftop, mtr, iperf, bind-utils, dstat, lsof)
+Install network tools (net-tools, iptraf, iftop, mtr, iperf, bind-utils, lsof)
+Insrall disk monitoring tools (dstat, iotop, iostat)
 Install NTP
 Disable firewalld
 Install iptables
