@@ -262,15 +262,6 @@ else
   yum install bind-utils -y -q
 fi
 
-#Install dstat
-if rpm -q dstat > /dev/null; then
-  echo "Package dstat is already installed."; 
-else
-  echo ""
-  echo "Now installing dstat"
-  yum install dstat -y -q
-fi
-
 #Install lsof
 if rpm -q lsof > /dev/null; then
   echo "Package lsof is already installed."; 
@@ -278,6 +269,15 @@ else
   echo ""
   echo "Now installing lsof"
   yum install lsof -y -q
+fi
+
+#Install dstat
+if rpm -q dstat > /dev/null; then
+  echo "Package dstat is already installed."; 
+else
+  echo ""
+  echo "Now installing dstat"
+  yum install dstat -y -q
 fi
 
 #Install iotop
