@@ -244,6 +244,15 @@ else
   yum install iotop -y -q
 fi
 
+#Install iostat
+if rpm -q sysstat > /dev/null; then
+  echo "Package iostat is already installed."; 
+else
+  echo ""
+  echo "Now installing iostat"
+  yum install sysstat -y -q
+fi
+
 #Install mtr
 if rpm -q mtr > /dev/null; then
   echo "Package mtr is already installed."; 
