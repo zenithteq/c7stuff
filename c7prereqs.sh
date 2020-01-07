@@ -150,6 +150,15 @@ else
   yum install pam_yubico -y -q
 fi
 
+#Install Google Authenticator
+if rpm -q google-authenticator > /dev/null; then
+  echo "Package google-authenticator is already installed."; 
+else
+  echo ""
+  echo "Now installing Google Authenticator"
+  yum install google-authenticator -y -q
+fi
+
 #Secure SSH
 #sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#Protocol 2/Protocol 2/' /etc/ssh/sshd_config
