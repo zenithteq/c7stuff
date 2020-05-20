@@ -318,7 +318,7 @@ then
   	echo ""
 	echo -e "\e[1;31mWebmin will now be installed.\e[0m"
 	wget http://www.webmin.com/download/rpm/webmin-current.rpm
-    	yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect perl-Digest-MD5 -y -q
+    	yum install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect perl-Digest-MD5 perl-Data-Dumper -y -q
     	rpm -U webmin-current.rpm
     	iptables -I INPUT -p tcp -m tcp --dport 10000 -j ACCEPT
     	service iptables save
