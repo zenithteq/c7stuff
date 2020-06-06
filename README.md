@@ -17,7 +17,7 @@ Install Fail2Ban
 Install Yubico
 Secure SSH
 ```
-The script will reboot your box once complted.
+The script will reboot your box once completed.
 
 ####Run the script:
 ```
