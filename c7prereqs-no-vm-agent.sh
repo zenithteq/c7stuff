@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#curl -o c7prereqs-no-vm-agent.sh https://raw.githubusercontent.com/zenithteq/c7stuff/master/c7prereqs-no-vm-agent.sh && bash c7prereqs-no-vm-agent.sh
+#curl -o c7prereqs-no-vm-agent.sh https://bit.ly/2ARtkoo && bash c7prereqs-no-vm-agent.sh
 
 #Change hostname
 HOSTNAME=$(hostname)
